@@ -41,3 +41,11 @@ class Setup:
         for key, value in configs.items():
             command = ["git", "config", f"--{level}", key, value]
             subprocess.run(command)
+
+    def pwsh(self):
+        """Some pwsh setup(WIP)."""
+        pwsh_profile = Path(
+            r"C:\Users\admin\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+        )
+        cmd = r'oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression'
+        pwsh_profile.write_text(cmd)
